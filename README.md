@@ -87,15 +87,20 @@ rover/
 
 * **Nome**: Rover (Remete à exploração, descoberta e movimentação eficiente)
 
-* **Logo Conceitual**: Em breve...
+* **Logo Conceitual**:
+  <img width="100%" alt="Group 0" src="https://github.com/user-attachments/assets/0d206f4d-d93c-4d19-b856-2ca3749bef67" />
 
 ### Paleta de Cores e Tipografia
+<img width="100%" alt="Group 1" src="https://github.com/user-attachments/assets/b0bdebfa-707e-431e-8dbd-52a3b1d79bc9" />
 
-Em breve ....
+<img width="100%" alt="Group 2" src="https://github.com/user-attachments/assets/7af29304-94d7-47c8-aa1a-58af3a77b15b" />
+
+<img width="100%" alt="Group 3" src="https://github.com/user-attachments/assets/17b2c506-437e-436b-852a-e0ba89c4dbb1" />
+
 
 ### Telas Conceituais
 
-Em breve ...
+<img width="100%" alt="Group 4" src="https://github.com/user-attachments/assets/e83f27e9-da05-4390-b652-fcec93515537" />
 
 ## 💡 Ideia de Venda
 

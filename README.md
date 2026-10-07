@@ -348,7 +348,10 @@ App-Mobile-Rover/
 
 ### Telas Conceituais
 
-<img width="100%" alt="Group 4" src="https://github.com/user-attachments/assets/e83f27e9-da05-4390-b652-fcec93515537" />
+<img width="100%" alt="Group 1" src="https://github.com/user-attachments/assets/e7d3af2d-6d72-4a60-b126-673747a1e9ed" />
+
+
+<!-- <img width="100%" alt="Group 4" src="https://github.com/user-attachments/assets/e83f27e9-da05-4390-b652-fcec93515537" /> -->
 
 O app tem **tema claro e escuro** (ou segue o sistema) e usa a fonte **Archivo**.
 

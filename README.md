@@ -378,14 +378,6 @@ App-Mobile-Rover/
 | [Ollama](https://ollama.com) (`/api/chat`, `/api/tags`) | Executa o Llama 3.2 localmente (chat em streaming, sugestões em JSON e verificação do modelo) | Não (local) |
 | API do Rover (backend próprio) | `/api/health`, `/api/chat`, `/api/chat/warmup` e `/api/suggestions` (veja [API do Backend](#-api-do-backend)) | Não |
 
-## 🗺️ Próximas Etapas
-
-- [ ] **Banco de dados:** hoje contas, viagens e curtidos ficam só no aparelho (AsyncStorage). A próxima etapa é adicionar um banco de dados ao backend (ex.: PostgreSQL) para guardar usuários, viagens, paradas e destinos curtidos, permitindo sincronizar entre aparelhos e não perder os dados ao trocar de celular.
-- [ ] **Autenticação no backend:** mover o login para a API (com tokens JWT e senhas com hash no servidor), integrada ao banco de dados.
-- [ ] **APK instalável:** gerar o build Android com o **EAS Build** (`eas build -p android --profile preview`) para instalar o Rover direto no celular, sem depender do Expo Go. Com isso, as notificações de clima também passam a funcionar no Android.
-- [ ] **Backend acessível fora da rede local:** hospedar a API para o app funcionar fora do Wi-Fi do computador.
-- [ ] **Pagamento real** da assinatura Premium.
-
 ## 🎨 Desenvolvimento de Marca e Design
 
 ### Identidade Visual e Logo
@@ -424,6 +416,14 @@ O **Rover** opera num modelo **Freemium**:
 ### Diferencial Competitivo
 
 O grande diferencial do **Rover** é a sua capacidade de adaptação em tempo real. Em vez de entregar um planejamento estático que perde a utilidade diante de imprevistos, o **Rover cria, otimiza e recalcula o itinerário completo de forma dinâmica**. Se a previsão indicar chuva no meio da tarde, por exemplo, o app avisa, sugere um local coberto próximo, faz a troca no roteiro e recalcula a rota; o Assistente contextual ajuda com qualquer outro imprevisto.
+
+## 🗺️ Próximas Etapas
+
+- [ ] **Banco de dados:** hoje contas, viagens e curtidos ficam só no aparelho (AsyncStorage). A próxima etapa é adicionar um banco de dados ao backend (ex.: PostgreSQL) para guardar usuários, viagens, paradas e destinos curtidos, permitindo sincronizar entre aparelhos e não perder os dados ao trocar de celular.
+- [ ] **Autenticação no backend:** mover o login para a API (com tokens JWT e senhas com hash no servidor), integrada ao banco de dados.
+- [ ] **APK instalável:** gerar o build Android com o **EAS Build** (`eas build -p android --profile preview`) para instalar o Rover direto no celular, sem depender do Expo Go. Com isso, as notificações de clima também passam a funcionar no Android.
+- [ ] **Backend acessível fora da rede local:** hospedar a API para o app funcionar fora do Wi-Fi do computador.
+- [ ] **Pagamento real** da assinatura Premium.
 
 ## 👥 Equipe
 

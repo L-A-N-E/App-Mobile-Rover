@@ -48,6 +48,7 @@
 - [🔌 API do Backend](#-api-do-backend)
 - [🏗️ Estrutura do Projeto](#️-estrutura-do-projeto)
 - [🧰 Tecnologias](#-tecnologias)
+- [🗺️ Próximas Etapas](#️-próximas-etapas)
 - [🎨 Desenvolvimento de Marca e Design](#-desenvolvimento-de-marca-e-design)
 - [💡 Ideia de Venda](#-ideia-de-venda)
 - [👥 Equipe](#-equipe)
@@ -329,6 +330,52 @@ App-Mobile-Rover/
 | Backend | Node.js, Express 5, TypeScript (tsx) |
 | Dados externos | Open-Meteo (previsão do tempo), OpenStreetMap Nominatim (coordenadas) |
 | Algoritmos | Grafo completo ponderado (Haversine), vizinho mais próximo + 2-opt |
+
+### 📦 Bibliotecas do app (`mobile/`)
+
+| Biblioteca | Para que é usada |
+| :--- | :--- |
+| `react-native` / `react` | Base do aplicativo |
+| `expo` | Plataforma de desenvolvimento e execução (Expo Go) |
+| `@react-navigation/native`, `native-stack`, `bottom-tabs` | Navegação em pilhas e barra de abas |
+| `react-native-screens`, `react-native-safe-area-context` | Telas nativas e respeito às áreas seguras (notch, barra de status) |
+| `@react-native-async-storage/async-storage` | Armazenamento local de contas, viagens, curtidos e preferências |
+| `expo-notifications` | Notificações locais de alerta de clima |
+| `expo-crypto` | Hash SHA-256 com salt das senhas |
+| `expo-haptics` | Vibração de feedback nos toques |
+| `expo-linear-gradient` | Degradês nos cards e capas |
+| `expo-font`, `@expo-google-fonts/archivo` | Fonte Archivo |
+| `@expo/vector-icons` | Ícones |
+| `expo-constants` | Descoberta automática do IP do computador para acessar o backend |
+| `expo-navigation-bar`, `expo-status-bar` | Cores da barra de navegação e de status do Android |
+| `react-native-web`, `react-dom`, `@expo/metro-runtime` | Execução do app no navegador |
+| `typescript` | Tipagem estática |
+
+### 📦 Bibliotecas do backend (`backend/`)
+
+| Biblioteca | Para que é usada |
+| :--- | :--- |
+| `express` | Servidor HTTP e rotas da API |
+| `cors` | Liberação de acesso do app à API |
+| `tsx` | Execução do TypeScript direto, sem etapa de build |
+| `typescript` | Tipagem estática e checagem (`npm run typecheck`) |
+
+### 🌍 APIs externas
+
+| API | Uso no Rover | Chave? |
+| :--- | :--- | :---: |
+| [Open-Meteo](https://open-meteo.com) (`/v1/forecast`) | Previsão do tempo por hora no destino e datas da viagem | Não |
+| [OpenStreetMap Nominatim](https://nominatim.org) (`/search`) | Confirma se os lugares sugeridos pela IA existem e obtém as coordenadas reais | Não |
+| [Ollama](https://ollama.com) (`/api/chat`, `/api/tags`) | Executa o Llama 3.2 localmente (chat em streaming, sugestões em JSON e verificação do modelo) | Não (local) |
+| API do Rover (backend próprio) | `/api/health`, `/api/chat`, `/api/chat/warmup` e `/api/suggestions` (veja [API do Backend](#-api-do-backend)) | Não |
+
+## 🗺️ Próximas Etapas
+
+- [ ] **Banco de dados:** hoje contas, viagens e curtidos ficam só no aparelho (AsyncStorage). A próxima etapa é adicionar um banco de dados ao backend (ex.: PostgreSQL) para guardar usuários, viagens, paradas e destinos curtidos, permitindo sincronizar entre aparelhos e não perder os dados ao trocar de celular.
+- [ ] **Autenticação no backend:** mover o login para a API (com tokens JWT e senhas com hash no servidor), integrada ao banco de dados.
+- [ ] **APK instalável:** gerar o build Android com o **EAS Build** (`eas build -p android --profile preview`) para instalar o Rover direto no celular, sem depender do Expo Go. Com isso, as notificações de clima também passam a funcionar no Android.
+- [ ] **Backend acessível fora da rede local:** hospedar a API para o app funcionar fora do Wi-Fi do computador.
+- [ ] **Pagamento real** da assinatura Premium.
 
 ## 🎨 Desenvolvimento de Marca e Design
 

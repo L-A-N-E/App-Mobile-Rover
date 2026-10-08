@@ -29,10 +29,6 @@
     <img src="https://img.shields.io/badge/Open--Meteo-FF8C00?style=for-the-badge&logo=icloud&logoColor=white" alt="Open-Meteo">
 </p>
 
-<p align="center">
-    📄 Esta é a <strong>versão 2</strong> da documentação. A versão anterior está em <a href="README_v1.md">README_v1.md</a>.
-</p>
-
 ---
 
 # 📚 Sumário

@@ -384,7 +384,7 @@ App-Mobile-Rover/
 * **Nome**: Rover (Remete à exploração, descoberta e movimentação eficiente)
 
 * **Logo Conceitual**:
-  <img width="100%" alt="Group 0" src="https://github.com/user-attachments/assets/0d206f4d-d93c-4d19-b856-2ca3749bef67" />
+<img width="100%" alt="Group 0" src="https://github.com/user-attachments/assets/0d206f4d-d93c-4d19-b856-2ca3749bef67" />
 
 ### Paleta de Cores e Tipografia
 <img width="100%" alt="Group 1" src="https://github.com/user-attachments/assets/b0bdebfa-707e-431e-8dbd-52a3b1d79bc9" />

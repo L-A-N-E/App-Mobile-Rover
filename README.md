@@ -186,7 +186,7 @@ A rota de cada dia é tratada como um **grafo completo ponderado**:
 * **Arestas:** ligam todos os pares de paradas.
 * **Pesos:** a distância real entre as paradas, calculada pela **fórmula de Haversine** (distância sobre a superfície da Terra).
 
-Encontrar a ordem que percorre todas as paradas com a menor distância é o **Problema do Caixeiro-Viajante (TSP)**. O Rover resolve em duas etapas (`mobile/src/utils/route.ts`):
+Encontrar a ordem que percorre todas as paradas com a menor distância é o **Problema do Caixeiro-Viajante (TSP)**, na versão de **caminho aberto** (o roteiro não precisa voltar ao ponto de partida). Como o TSP é NP-difícil, o Rover usa **heurísticas**, que encontram uma rota muito boa em milissegundos, mas sem garantia de ser a ótima. A solução tem três partes (`mobile/src/utils/route.ts`):
 
 ```mermaid
 flowchart LR
@@ -197,11 +197,13 @@ flowchart LR
     E --> F[Cronograma com horários]
 ```
 
-1. **Vizinho mais próximo:** começando pela primeira parada, vai sempre para a parada ainda não visitada mais próxima. Gera rapidamente uma boa rota inicial.
-2. **Melhoria 2-opt:** testa inverter trechos da rota. Sempre que a inversão diminui a distância total (o que elimina "cruzamentos" no caminho), ela é aplicada, até não haver mais ganho.
+1. **Vizinho mais próximo:** a primeira parada da lista é o ponto de partida e fica fixa. A partir dela, vai sempre para a parada ainda não visitada mais próxima. Gera rapidamente uma boa rota inicial (complexidade O(n²)).
+2. **Melhoria 2-opt:** testa inverter trechos da rota. Sempre que a inversão diminui a distância total (o que elimina "cruzamentos" no caminho), ela é aplicada, e o processo se repete até não haver mais ganho. O início e o fim da rota são mantidos.
 3. **Regra de vida noturna:** bares e casas noturnas ficam sempre no fim do dia, otimizados a partir da última parada diurna.
 
-**Distribuição em vários dias:** ao criar uma viagem de vários dias, todos os lugares são ordenados uma vez, divididos em blocos iguais (um por dia) e cada dia é otimizado de novo.
+Dias com menos de 3 paradas não passam pela otimização, já que não existe ordem melhor a escolher.
+
+**Distribuição em vários dias:** ao criar uma viagem de vários dias, todos os lugares são ordenados uma vez e divididos em blocos (um por dia). Assim, lugares próximos caem no mesmo dia. Cada bloco tem até ⌈lugares ÷ dias⌉ paradas, então o último dia pode ficar mais leve, e cada dia é otimizado de novo.
 
 **Cronograma:** o dia começa às **09:00**. Cada parada soma seu tempo médio de visita e o deslocamento até a próxima, estimado a uma velocidade média urbana de 14 km/h (entre caminhada e transporte público), com mínimo de 5 minutos.
 

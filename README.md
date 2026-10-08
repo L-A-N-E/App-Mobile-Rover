@@ -190,11 +190,12 @@ Encontrar a ordem que percorre todas as paradas com a menor distância é o **Pr
 
 ```mermaid
 flowchart LR
-    A[Paradas do dia] --> B[Separa vida noturna]
-    B --> C[Vizinho mais próximo<br/>monta uma rota inicial]
-    C --> D[2-opt<br/>desfaz cruzamentos]
-    D --> E[Vida noturna no fim do dia]
-    E --> F[Cronograma com horários]
+    A[Paradas do dia] --> B[Diurnas]
+    A --> C[Vida noturna]
+    B --> D[Ordena a rota<br/>vizinho mais próximo + 2-opt]
+    D --> E[Ordena a noite a partir<br/>da última parada diurna]
+    C --> E
+    E --> F[Roteiro com horários]
 ```
 
 1. **Vizinho mais próximo:** a primeira parada da lista é o ponto de partida e fica fixa. A partir dela, vai sempre para a parada ainda não visitada mais próxima. Gera rapidamente uma boa rota inicial (complexidade O(n²)).
@@ -212,6 +213,16 @@ Dias com menos de 3 paradas não passam pela otimização, já que não existe o
 * Mostra paradas, distância total e duração do dia.
 * Se a ordem atual não é a melhor, aparece **"Rota pode ficar X km menor"** com o botão **Otimizar**. Quando já está na melhor ordem, o app avisa.
 * O usuário pode **fixar o horário** de qualquer passeio. As paradas seguintes se ajustam a partir dele, e o app avisa se o horário escolhido não dá tempo de chegar vindo da parada anterior. O botão "Automático" volta ao cálculo padrão.
+
+**Próximos passos da otimização:**
+
+- [ ] **Distância pelas ruas:** trocar a linha reta (Haversine) pela distância e pelo tempo reais de deslocamento, usando uma API de rotas como OSRM ou OpenRouteService.
+- [ ] **Meio de transporte:** deixar o viajante escolher entre a pé, carro ou transporte público, ajustando a velocidade média.
+- [ ] **Horário de funcionamento:** não marcar visitas fora do horário de abertura dos lugares (TSP com janelas de tempo).
+- [ ] **Ponto de partida real:** começar a rota pelo hotel ou pela localização atual (GPS).
+- [ ] **Recálculo durante a viagem:** reorganizar o resto do dia automaticamente quando houver atraso.
+
+As próximas etapas gerais do projeto estão em [Próximas Etapas](#️-próximas-etapas).
 
 ## 🌦️ Previsão do Tempo e Alertas
 
